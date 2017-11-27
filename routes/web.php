@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'BiblisController@home')->name('home');
+
+Route::resource('biblis','BiblisController');
