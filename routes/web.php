@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', 'BiblisController@home')->name('home');
+// Route::get('/', 'BiblisController@home')->name('home');
 
 Route::resource('biblis','BiblisController');
+  

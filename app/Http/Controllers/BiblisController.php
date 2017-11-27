@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Biblis;
 use Illuminate\Http\Request;
 
 class BiblisController extends Controller
@@ -13,7 +14,8 @@ class BiblisController extends Controller
      */
     public function index()
     {
-        dd('fghj');
+       $biblis =  Biblis::all();
+       return view('biblis.index',compact('biblis'));
     }
 
     /**
@@ -45,7 +47,7 @@ class BiblisController extends Controller
      */
     public function show($id)
     {
-        //
+        dd('gbhn');
     }
 
     /**
