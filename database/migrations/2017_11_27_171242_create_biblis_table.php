@@ -15,6 +15,12 @@ class CreateBiblisTable extends Migration
     {
         Schema::create('biblis', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title');
+            $table->string('author');
+            $table->text('resume');
+            $table->string('category');
+            $table->date('date');
+
             $table->timestamps();
         });
     }
