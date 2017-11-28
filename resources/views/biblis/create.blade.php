@@ -2,12 +2,12 @@
 
 @section('content')
 
-<h1 class="text-center"> Add  a Book</h1>
+<h1 class="text-center"> Add a Book</h1>
 
 <form action="{{route('biblis.store')}}" method="POST">
 	 {{ csrf_field() }}
 
-  @include('biblis/_form ')
+ 		 @include('biblis/_form ')
 
 	 <button type="submit" class="btn btn-default">Submit</button>
 

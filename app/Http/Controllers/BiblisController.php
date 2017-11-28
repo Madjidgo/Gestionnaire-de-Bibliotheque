@@ -107,6 +107,6 @@ class BiblisController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd('gh');
     }
 }

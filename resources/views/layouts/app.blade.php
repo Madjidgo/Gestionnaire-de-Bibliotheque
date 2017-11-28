@@ -8,6 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <header>
@@ -16,6 +17,16 @@
   
   <body>
   @yield('content')
+
+
+  <footer>
+    <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <!-- <h1 class="display-3">Fluid jumbotron</h1> -->
+    <p class="lead text-center">&copy Madjidgo Simplon 2017.</p>
+  </div>
+</div>
+  </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
