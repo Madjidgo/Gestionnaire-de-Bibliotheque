@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBiblisTable extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateBiblisTable extends Migration
      */
     public function up()
     {
-        Schema::create('biblis', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('author');
-            $table->text('resume');
-            $table->string('category');
-            $table->date('date');
+            $table->string('name');
+            $table->int('number');
+            
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateBiblisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('biblis');
+        Schema::dropIfExists('users');
     }
 }

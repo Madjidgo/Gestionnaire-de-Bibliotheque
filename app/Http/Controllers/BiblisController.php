@@ -107,6 +107,7 @@ class BiblisController extends Controller
      */
     public function destroy($id)
     {
-        dd('gh');
+        Biblis::destroy($id);
+        return redirect(route('home'));
     }
 }
