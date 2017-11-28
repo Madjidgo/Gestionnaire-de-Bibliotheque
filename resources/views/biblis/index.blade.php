@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<h1 class="text-center">Bibliothèque</h1>
+	<h1 class="text-center"> {{$biblis->count()}} {{ str_plural('LIBRARY',$biblis->count()) }}</h1>
 
 
 	@if(count($biblis) >0)

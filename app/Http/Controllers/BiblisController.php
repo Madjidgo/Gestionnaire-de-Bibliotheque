@@ -25,7 +25,8 @@ class BiblisController extends Controller
      */
     public function create()
     {
-        //
+        $bibli = new Biblis;
+        return view('biblis.create',compact('bibli'));
     }
 
     /**
@@ -47,7 +48,8 @@ class BiblisController extends Controller
      */
     public function show($id)
     {
-        dd('gbhn');
+        $bibli = Biblis::findOrFail($id);
+           return view('biblis.show',compact('bibli'));
     }
 
     /**
