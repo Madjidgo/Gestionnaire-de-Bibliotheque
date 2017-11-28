@@ -12,7 +12,10 @@
 		{{$bibli->title}}</a>
 	</li>
 	@endforeach
+
+		{{ $biblis->links('vendor.pagination.bootstrap-4') }} 
 	</ul>
 	@endif
-
+	
+	
 @stop 

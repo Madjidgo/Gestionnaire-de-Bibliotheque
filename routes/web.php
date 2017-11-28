@@ -10,7 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/**
+ * show all free index page
+ */
 Route::get('/', 'BiblisController@index')->name('home');
 
 Route::resource('biblis','BiblisController');
