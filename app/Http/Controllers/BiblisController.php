@@ -37,7 +37,17 @@ class BiblisController extends Controller
      */
     public function store(Request $request)
     {
-        return back();
+        $request->validate([
+        'title' => 'bail|required|min:3',
+        'resume' => 'required|min:5',
+    ]);
+        Biblis::create(['title' => $request->title,
+                        'author' => $request->author,
+                        'resume' => $request->resume,
+                        'category' => $request->category,
+                        'date' => $request->date]);
+        
+        return redirect(route('home'));
     }
 
     /**
