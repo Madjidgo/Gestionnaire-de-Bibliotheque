@@ -37,7 +37,7 @@ class BiblisController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return back();
     }
 
     /**
