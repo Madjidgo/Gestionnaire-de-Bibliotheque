@@ -12,6 +12,7 @@
         <p class="card-text">{{$bibli->category}}</p>
         <p class="card-text">{{$bibli->date}}</p>
       <a href="{{route('home')}}" class="btn btn-primary">Home</a>
+       <a href="{{route('biblis.edit',$bibli)}}" class="btn btn-primary">Update</a>
       </div>
     </div>
   </div>

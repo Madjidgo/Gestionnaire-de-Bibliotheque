@@ -41,12 +41,13 @@ class BiblisController extends Controller
         'title' => 'bail|required|min:3',
         'resume' => 'required|min:5',
     ]);
+
         Biblis::create(['title' => $request->title,
                         'author' => $request->author,
                         'resume' => $request->resume,
                         'category' => $request->category,
                         'date' => $request->date]);
-        
+
         return redirect(route('home'));
     }
 
@@ -58,7 +59,7 @@ class BiblisController extends Controller
      */
     public function show($id)
     {
-        $bibli = Biblis::findOrFail($id);
+            $bibli = Biblis::findOrFail($id);
            return view('biblis.show',compact('bibli'));
     }
 
@@ -70,7 +71,8 @@ class BiblisController extends Controller
      */
     public function edit($id)
     {
-        //
+        $bibli = Biblis::findOrFail($id);
+        return view('biblis.edit',compact('bibli'));
     }
 
     /**
@@ -82,7 +84,19 @@ class BiblisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $request->validate([
+        'title' => 'bail|required|min:3',
+        'resume' => 'required|min:5',
+        ]);
+
+        $bibli = Biblis::findOrFail($id);
+         $bibli->update(['title' => $request->title,
+                        'author' => $request->author,
+                        'resume' => $request->resume,
+                        'category' => $request->category,
+                        'date' => $request->date]);
+
+        return redirect(route('biblis.show', $id));
     }
 
     /**
