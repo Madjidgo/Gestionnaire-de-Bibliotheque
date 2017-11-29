@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Biblis extends Model
 {
-    protected $fillable = ['title','author','resume','category', 'date'];
+    protected $fillable = ['title','author','resume','category', 'borrow','date'];
 }
 
 // *

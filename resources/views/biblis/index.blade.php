@@ -17,6 +17,6 @@
 		{{ $biblis->links('vendor.pagination.bootstrap-4') }} 
 	</ul>
 	@endif
-	
-	
+
+
 @stop 

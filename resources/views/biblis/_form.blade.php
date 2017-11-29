@@ -22,6 +22,12 @@
     {!! $errors->first('category','<p>:message</p>') !!}
   </div>
 
+   <div class="form-group">
+    <label for="formGroupExampleInput">Borrow</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" name="borrow" value="{{old('category') ?? $bibli->borrow}}">
+    {!! $errors->first('borrow','<p>:message</p>') !!}
+  </div>
+
 	
    <div class="form-group">
     <label for="formGroupExampleInput">Date</label>

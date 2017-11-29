@@ -10,6 +10,7 @@
           <h4 class="card-title">{{$bibli->author}}</h4>
           <p class="card-text">{{$bibli->resume}}.</p>
           <p class="card-text">{{$bibli->category}}</p>
+          <p class="card-text">{{$bibli->borrow}}</p>
           <p class="card-text">{{$bibli->date}}</p>
             <a href="{{route('home')}}" class="btn btn-outline-primary"><i class="fa fa-home" aria-hidden="true"></i>
             Home</a>
