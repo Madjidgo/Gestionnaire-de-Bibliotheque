@@ -1,3 +1,29 @@
+
+<p align="center">Evaluation 3: Library Manager
+1) The application
+You will create an application that allows a librarian to manage his book catalog
+As well as loans and returns. The application informed of:
+- Display the list of articles in the catalog available to them (available or loaned)
+- View the list of all registered users in the system
+personal
+- Add a book to the catalog
+- To be able to sort the books according to their category thanks to a dropdown (for example: novel, poetry,
+adventure ...). When the user clicks for example on novel, the page displays only the book of the
+Roman category.
+- To be able to access the descriptive card of each book recorded in BDD
+- Be able to change the status of each book available to ready and ready. When a
+book is lent the librarian indicates the unique identification number of the user in order to
+who borrowed what. When we come back to the description of the book it indicates
+The information on the book that the users of the loan.
+As a reminder, a non-exhaustive list of useful information to know about a book:
+title, author, abstract, release date, category. Of course you add others.</p>
+
+
+
+
+
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
