@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Biblis;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class BiblisController extends Controller
@@ -14,8 +14,9 @@ class BiblisController extends Controller
      */
     public function index()
     {
-       $biblis =  Biblis::paginate(3);
-       return view('biblis.index',compact('biblis'));
+       //$biblis =  Biblis::paginate(3);
+       $books = Book::all();
+       return view('biblis.index', compact('books'));
     }
 
     /**
@@ -25,8 +26,8 @@ class BiblisController extends Controller
      */
     public function create()
     {
-        $bibli = new Biblis;
-        return view('biblis.create',compact('bibli'));
+        $book = new Book;
+        return view('biblis.create',compact('book'));
     }
 
     /**
@@ -42,7 +43,7 @@ class BiblisController extends Controller
         'resume' => 'required|min:5',
     ]);
 
-        Biblis::create(['title' => $request->title,
+        Book::create(['title' => $request->title,
                         'author' => $request->author,
                         'resume' => $request->resume,
                         'category' => $request->category,
@@ -61,8 +62,8 @@ class BiblisController extends Controller
      */
     public function show($id)
     {
-            $bibli = Biblis::findOrFail($id);
-           return view('biblis.show',compact('bibli'));
+            $book = Book::findOrFail($id);
+           return view('biblis.show',compact('book'));
     }
 
     /**
@@ -73,8 +74,8 @@ class BiblisController extends Controller
      */
     public function edit($id)
     {
-        $bibli = Biblis::findOrFail($id);
-        return view('biblis.edit',compact('bibli'));
+        $book = Book::findOrFail($id);
+        return view('biblis.edit',compact('book'));
     }
 
     /**
@@ -91,8 +92,8 @@ class BiblisController extends Controller
         'resume' => 'required|min:5',
         ]);
 
-        $bibli = Biblis::findOrFail($id);
-         $bibli->update(['title' => $request->title,
+        $book = Book::findOrFail($id);
+         $book->update(['title' => $request->title,
                         'author' => $request->author,
                         'resume' => $request->resume,
                         'category' => $request->category,
@@ -111,7 +112,7 @@ class BiblisController extends Controller
      */
     public function destroy($id)
     {
-        Biblis::destroy($id);
+        Book::destroy($id);
         return redirect(route('home'));
     }
 }

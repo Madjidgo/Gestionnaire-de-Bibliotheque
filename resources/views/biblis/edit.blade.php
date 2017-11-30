@@ -4,9 +4,9 @@
 
 @section('content')
 
-<h1 class="text-center">{{$bibli->title}}</h1>
+<h1 class="text-center">{{$book->title}}</h1>
 
-<form action="{{route('biblis.update',$bibli)}}" method="POST">
+<form action="{{route('biblis.update',$book)}}" method="POST">
  {{ csrf_field() }}
 
 	{{method_field('PUT')}}

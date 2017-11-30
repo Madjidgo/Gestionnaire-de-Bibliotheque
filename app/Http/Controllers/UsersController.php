@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Users;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -14,9 +14,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-       $users = Users::all();
-       
-      return view('users.index');
+    $user = User::all();
+    return view('users.index', compact('user'));   
+    
     }
 
     /**
@@ -48,7 +48,8 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+             $user = User::findOrFail($id);
+           return view('users.show',compact('user'));
     }
 
     /**

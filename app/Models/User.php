@@ -5,16 +5,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Users extends Model
+class User extends Model
 {
     protected $fillable = ['name','number'];
 
 
-      public function biblis() 
+      public function book() 
 
     {
 
-        return $this->hasMany('App\Biblis');
+        return $this->hasMany('App\Models\Book');
 
     }
 }
