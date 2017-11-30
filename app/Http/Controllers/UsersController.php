@@ -14,9 +14,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-       // $users = Users::all();
-       // dump($users);
-      
+       $users = Users::all();
+       
+      return view('users.index');
     }
 
     /**

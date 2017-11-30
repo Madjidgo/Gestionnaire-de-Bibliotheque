@@ -47,6 +47,7 @@ class BiblisController extends Controller
                         'resume' => $request->resume,
                         'category' => $request->category,
                         'borrow' => $request->borrow,
+                        'user_id' => $request->user_id,
                         'date' => $request->date]);
 
         return redirect(route('home'));
@@ -96,6 +97,7 @@ class BiblisController extends Controller
                         'resume' => $request->resume,
                         'category' => $request->category,
                         'borrow' => $request->borrow,
+                        'user_id' => $request->user_id,
                         'date' => $request->date]);
 
         return redirect(route('biblis.show', $id));

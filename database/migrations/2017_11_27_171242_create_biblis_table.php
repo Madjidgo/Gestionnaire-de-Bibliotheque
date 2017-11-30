@@ -19,8 +19,12 @@ class CreateBiblisTable extends Migration
             $table->string('author');
             $table->text('resume');
             $table->string('category');
-            $table->string('borrow');
+            $table->boolean('borrow');
             $table->date('date');
+            $table->integer('user_id')
+                  ->unsigned()
+                  ->index();
+
             $table->timestamps();
         });
     }

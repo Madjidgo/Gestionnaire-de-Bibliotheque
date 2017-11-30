@@ -1,4 +1,4 @@
- <div class="form-group">
+   <div class="form-group">
     <label for="formGroupExampleInput">Title</label>
     <input type="text" class="form-control" id="formGroupExampleInput" name="title" value="{{old('title') ?? $bibli->title}}">
     {!! $errors->first('title','<p>:message</p>') !!}
@@ -24,8 +24,15 @@
 
    <div class="form-group">
     <label for="formGroupExampleInput">Borrow</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" name="borrow" value="{{old('category') ?? $bibli->borrow}}">
+    <input type="text" class="form-control" id="formGroupExampleInput" name="borrow" value="{{old('borrow') ?? $bibli->borrow}}">
     {!! $errors->first('borrow','<p>:message</p>') !!}
+  </div>
+
+  <div class="form-group">
+    <label for="formGroupExampleInput">User_id</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" name="user_id" value="{{old('user_id') ?? $bibli->user_id}}">
+    {!! $errors->first('user_id','<p>:message</p>') !!}
+  
   </div>
 
 	

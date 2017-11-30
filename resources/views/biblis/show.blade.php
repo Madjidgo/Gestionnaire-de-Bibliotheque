@@ -12,6 +12,7 @@
           <p class="card-text">{{$bibli->category}}</p>
           <p class="card-text">{{$bibli->borrow}}</p>
           <p class="card-text">{{$bibli->date}}</p>
+          <p class="card-text">{{$bibli->user_id}}</p>
             <a href="{{route('home')}}" class="btn btn-outline-primary"><i class="fa fa-home" aria-hidden="true"></i>
             Home</a>
              <a href="{{route('biblis.edit',$bibli)}}" class="btn btn-outline-secondary"><i class="fa fa-pencil" aria-hidden="true"></i>

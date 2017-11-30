@@ -11,6 +11,8 @@
 	<li>
 		<a href="{{route('biblis.show',$bibli)}}">
 		{{$bibli->title}}</a>
+
+	
 	</li>
 	@endforeach
 
