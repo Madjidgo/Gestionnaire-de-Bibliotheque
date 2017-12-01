@@ -14,8 +14,8 @@
 	<li>
 		<a href="{{route('biblis.show',$book)}}"></a>
 
-@if( $book->borrow == 1)
-	loué par : {{ $book->user->name}}
+	@if( $book->borrow == 1)
+	Book :{{$book->title}} borrow by: {{ $book->user->name}}
 	@endif
 
 
@@ -32,16 +32,16 @@
 
 		<thead>
           	<tr>
-            	<th>id</th>
+            	<th>#</th>
             	<th>Title</th>
-            	<th>User</th>
+
 	    		<th>Borrow</th>
 	    		<th>Action</th>
         	</tr>
 		</thead>
 
 		<tbody>
-			@foreach($books as $key => $book)
+			@foreach($books as $book)
  			<tr>
 	    
 	    		<td>
@@ -51,25 +51,28 @@
 	    		<td>
 	      			<a href="{{route('biblis.show',$book)}}">{{$book->title}}</a>
 	    		</td>
-					
-	    		<td>
-	      			<a href="{{route('users.show',$book)}}">{{$book->user->name}}</a>
-	    		</td>
 
 	    		<td>
-	      			<a href="{{route('biblis.show',$book)}}">{{$book->borrow}}</a>
+	    		@if($book->borrow == 1)
+	      			<a href="{{route('biblis.show',$book)}}">{{$book->user->name}}</a>
+	    		@else
+	    		    <a href="{{route('home')}}">disponible</a>
+	    		
+	    		@endif
 	    		</td>
 
-	    		<td class="row text-left">
-	      			  <a href="{{route('biblis.show',$book)}}" class="btn btn-outline-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
-             			<a href="{{route('biblis.edit',$book)}}" class="btn btn-outline-secondary"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+	    		<td class="row">
+	    		
+	      			  <a href="{{route('biblis.show',$book)}}" class="btn btn-outline-primary "><i class="fa fa-eye" aria-hidden="true"></i></a>
+             			<a href="{{route('biblis.edit',$book)}}" class="btn btn-outline-secondary "><i class="fa fa-pencil" aria-hidden="true"></i></a>
 
             <!-- form delete -->
-		           <form action="{{route('biblis.destroy',$book)}}" method="POST">
+		           <form action="{{route('biblis.destroy',$book)}}" method="POST" '>
 		           {{ csrf_field() }}
 		           {{ method_field('DELETE') }}
 		           <button type="submit" class="btn btn-outline-danger"><i class="fa fa-trash-o fa-lg"></i></button>
-		          </form>	
+		          </form>
+		      	
 	    		</td>
 
 
