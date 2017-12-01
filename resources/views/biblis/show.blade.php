@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
   @section('content')
-      	<h1 class="text-center">TITLE :{{$book->title}}</h1>
+      	<h1 class="text-center">TITLE BOOK :{{$book->title}}</h1>
       <div class="container">
       <div class="row">
         <div class="col-sm-6">
@@ -10,10 +10,12 @@
               <h4 class="card-title">Author:{{$book->author}}</h4>
               <p class="card-text">Resume:{{$book->resume}}.</p>
               <p class="card-text">Category:{{$book->category}}</p>
-              <p class="card-text">borrow{{$book->borrow}}</p>
-              <p class="card-text">date:{{$book->date}}</p>
-              <p class="card-text">user: {{$book->user_id}}</p>
 
+              @if($book->borrow == 1)
+              <p class="card-text">borrow by:{{$book->user->name}}</p>
+              <p class="card-text">date:{{$book->date}}</p>
+              <p class="card-text">user: {{$book->user->name}}</p>
+              @endif
           
                 <a href="{{route('home')}}" class="btn btn-outline-primary"><i class="fa fa-home" aria-hidden="true"></i>
                 Home</a>

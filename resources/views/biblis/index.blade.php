@@ -34,8 +34,7 @@
           	<tr>
             	<th>#</th>
             	<th>Title</th>
-
-	    		<th>Borrow</th>
+	    		<th>Borrow by	</th>
 	    		<th>Action</th>
         	</tr>
 		</thead>
@@ -54,9 +53,9 @@
 
 	    		<td>
 	    		@if($book->borrow == 1)
-	      			<a href="{{route('biblis.show',$book)}}">{{$book->user->name}}</a>
+	      			<a href="{{route('users.show',$book)}}">{{$book->user->name}}</a>
 	    		@else
-	    		    <a href="{{route('home')}}">disponible</a>
+	    		    <a href="{{route('home')}} btn btn-danger">available</a>
 	    		
 	    		@endif
 	    		</td>
