@@ -53,7 +53,7 @@
 
 	    		<td>
 	    		@if($book->borrow == 1)
-	      			<a href="{{route('users.show',$book)}}">{{$book->user->name}}</a>
+	      			<a href="{{route('users.show',$book->user)}}">{{$book->user->name}}</a>
 	    		@else
 	    		    <a href="{{route('home')}} btn btn-danger">available</a>
 	    		
