@@ -16,5 +16,8 @@
   <a class="btn btn-default" href="{{ route('home') }}"> Retry</a>
 </form>
 
+  <script src="//code.jquery.com/jquery.js"></script>
+ 	 @include('flashy::message')
 
 @stop
+

@@ -101,4 +101,20 @@
 
    <span class="text-center">{{$books->links('vendor.pagination.bootstrap-4')}}</span> 
 
+   <!-- message confirmation -->
+  <!--     @if(Session::has('flashy_notification.message'))
+    <script id="flashy-template" type="text/template">
+        <div class="flashy flashy--{{ Session::get('flashy_notification.type') }}">
+            <i class="material-icons">was succes</i>
+            <a href="#" class="flashy__body" target="_blank"></a>
+        </div>
+    </script> -->
+
+  <!--   <script>
+        flashy("{{ Session::get('flashy_notification.message') }}", "{{ Session::get('flashy_noticcefication.link') }}");
+    </script> -->
+     <!--  <script src="//code.jquery.com/jquery.js"></script>
+ 	 @include('flashy::message') -->
+   <!--  @endif -->
+
 @endsection

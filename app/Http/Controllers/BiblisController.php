@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 
 class BiblisController extends Controller
 {
@@ -15,7 +16,6 @@ class BiblisController extends Controller
     public function index()
     {
        $books =  Book::paginate(3);
-       // $books = Book::all();
        return view('biblis.index', compact('books'));
     }
 
@@ -27,6 +27,7 @@ class BiblisController extends Controller
     public function create()
     {
         $book = new Book;
+         // Flashy::message('Create was success!');
         return view('biblis.create',compact('book'));
     }
 
@@ -51,6 +52,7 @@ class BiblisController extends Controller
                         'user_id' => $request->user_id,
                         'date' => $request->date]);
 
+        Flashy::message('Create was success!');
         return redirect(route('home'));
     }
 
@@ -75,6 +77,7 @@ class BiblisController extends Controller
     public function edit($id)
     {
         $book = Book::findOrFail($id);
+        Flashy::message('Delete was success!');
         return view('biblis.edit',compact('book'));
     }
 
@@ -101,6 +104,8 @@ class BiblisController extends Controller
                         'user_id' => $request->user_id,
                         'date' => $request->date]);
 
+
+        Flashy::primaryDark('Modif was success!'); 
         return redirect(route('biblis.show', $id));
     }
 
@@ -113,6 +118,7 @@ class BiblisController extends Controller
     public function destroy($id)
     {
         Book::destroy($id);
+        Flashy::error('Delete was success!');
         return redirect(route('home'));
     }
 }
