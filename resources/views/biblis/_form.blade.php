@@ -38,6 +38,6 @@
 	
    <div class="form-group">
     <label for="formGroupExampleInput">Date</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" name="date" value="{{old('date') ?? $book->date}}">
+    <input type="date" class="form-control" id="formGroupExampleInput" name="date" value="{{old('date') ?? $book->date}}">
     {!! $errors->first('date','<p>:message</p>') !!}
   </div>

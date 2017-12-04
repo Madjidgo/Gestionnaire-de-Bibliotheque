@@ -6,6 +6,24 @@
 
 	<h1 class="text-center"> {{$books->count()}} {{ str_plural('BOOK',$books->count()) }}</h1>
 
+	
+		 <div class="form-group btn btn-lg btn-success text-center">
+
+          <label for="user_id" class="control-label-col-sm-2">Category</label>
+            <div class="col-sm-6">
+          <select name="user_id"  class="from-control">
+
+         @foreach($books as $book)
+
+        <option value="{{$book->id}}"
+          @if($book->user_id == $book->id) selected @endif >
+          {{$book->category}}
+        </option>
+          @endforeach
+          </select>
+        </div>
+
+  </div>
 
 	@if(count($books) >0)
 	<h2>LisTing</h2>
@@ -52,18 +70,22 @@
 	    		</td>
 
 	    		<td>
+	      			<a href="{{route('biblis.show',$book)}}">{{$book->category}}</a>
+	    		</td>
+
+	    		<td>
 	    		@if($book->borrow == 1)
 	      			<a href="{{route('users.show',$book->user)}}">{{$book->user->name}}</a>
 	    		@else
-	    		    <a href="{{route('home')}} btn btn-danger">available</a>
+	    		    <a href="{{route('home')}}" class="btn-outline-danger">available</a>
 	    		
 	    		@endif
 	    		</td>
 
 	    		<td class="row">
 	    		
-	      			  <a href="{{route('biblis.show',$book)}}" class="btn btn-outline-primary "><i class="fa fa-eye" aria-hidden="true"></i></a>
-             			<a href="{{route('biblis.edit',$book)}}" class="btn btn-outline-secondary "><i class="fa fa-pencil" aria-hidden="true"></i></a>
+	      			 <a href="{{route('biblis.show',$book)}}" class="btn btn-outline-primary "><i class="fa fa-eye" aria-hidden="true"></i></a>
+             		<a href="{{route('biblis.edit',$book)}}" class="btn btn-outline-secondary "><i class="fa fa-pencil" aria-hidden="true"></i></a>
 
             <!-- form delete -->
 		           <form action="{{route('biblis.destroy',$book)}}" method="POST" '>
