@@ -14,8 +14,8 @@ class BiblisController extends Controller
      */
     public function index()
     {
-       //$biblis =  Biblis::paginate(3);
-       $books = Book::all();
+       $books =  Book::paginate(3);
+       // $books = Book::all();
        return view('biblis.index', compact('books'));
     }
 

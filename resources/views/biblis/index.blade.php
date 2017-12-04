@@ -5,46 +5,38 @@
 @section('content')
 
 	<h1 class="text-center"> {{$books->count()}} {{ str_plural('BOOK',$books->count()) }}</h1>
-
 	
-		 <div class="form-group btn btn-lg btn-success text-center">
+	
 
-          <label for="user_id" class="control-label-col-sm-2">Category</label>
-            <div class="col-sm-6">
-          <select name="user_id"  class="from-control">
-
-         @foreach($books as $book)
-
-        <option value="{{$book->id}}"
-          @if($book->user_id == $book->id) selected @endif >
-          {{$book->category}}
-        </option>
-          @endforeach
-          </select>
-        </div>
-
-  </div>
 
 	@if(count($books) >0)
-	<h2>LisTing</h2>
-	<ul>
-	@foreach($books as $book)
-	<li>
-		<a href="{{route('biblis.show',$book)}}"></a>
-
-	@if( $book->borrow == 1)
-	Book :{{$book->title}} borrow by: {{ $book->user->name}}
-	@endif
-
-
 	
-	</li>
-	@endforeach
+	<ul>
 
-		{{-- $biblis->links('vendor.pagination.bootstrap-4') --}} 
+			<!-- dropdown -->
+				 <div class="form-group text-center">
+					<div class="col-sm-6">
+	          <label for="user_id" class="control-label-col-sm-2  ">Category</label>
+	            
+	          <select name="user_id"  class="from-control btn btn-lg btn-success ">
+
+	         @foreach($books as $book)
+
+	        <option value="{{$book->id}}"
+	          @if($book->user_id == $book->id) selected @endif >
+	          {{$book->category}}
+	        </option>
+	          @endforeach
+	          </select>
+	        </div>
+
+	  </div>
+		
 	</ul>
 	@endif
 
+
+	<!-- start tab -->
   <section class="main w3-container w3-margin container text-center table-responsive">
      <table class="w3-table-all table table-striped table-bordered ">
 
@@ -52,6 +44,7 @@
           	<tr>
             	<th>#</th>
             	<th>Title</th>
+            	<th>Categoryaas</th>
 	    		<th>Borrow by	</th>
 	    		<th>Action</th>
         	</tr>
@@ -68,6 +61,7 @@
 	    		<td>
 	      			<a href="{{route('biblis.show',$book)}}">{{$book->title}}</a>
 	    		</td>
+
 
 	    		<td>
 	      			<a href="{{route('biblis.show',$book)}}">{{$book->category}}</a>
@@ -102,5 +96,9 @@
 			</tbody>
 		</table>
 	</section>
+	<!-- end tab -->
+
+
+   <span class="text-center">{{$books->links('vendor.pagination.bootstrap-4')}}</span> 
 
 @endsection

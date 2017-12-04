@@ -7,7 +7,6 @@
   <body>
   @yield('content')
 
-
   @include('layouts.footer')
 
     <!-- Optional JavaScript -->
