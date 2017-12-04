@@ -15,8 +15,11 @@
  */
 Route::get('/', 'BiblisController@index')->name('home');
 
-
+/**
+ * BiblisController
+ */
 Route::resource('biblis','BiblisController');
-
+/**
+ * UsersController
+ */
 Route::resource('users','UsersController');
-  

@@ -4,13 +4,15 @@ namespace App\Models;
 
 
 use Illuminate\Database\Eloquent\Model;
-
+/**
+ * fillableble
+ */
 class User extends Model
 {
     protected $fillable = ['name','number'];
 
 
-      public function book() 
+      public function book()
 
     {
 

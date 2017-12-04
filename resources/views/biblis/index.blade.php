@@ -5,19 +5,20 @@
 @section('content')
 
 	<h1 class="text-center"> {{$books->count()}} {{ str_plural('BOOK',$books->count()) }}</h1>
-	
-	
+
+
 
 
 	@if(count($books) >0)
-	
+	@if($books != null)
+
 	<ul>
 
 			<!-- dropdown -->
 				 <div class="form-group text-center">
 					<div class="col-sm-6">
 	          <label for="user_id" class="control-label-col-sm-2  ">Category</label>
-	            
+
 	          <select name="user_id"  class="from-control btn btn-lg btn-success ">
 
 	         @foreach($books as $book)
@@ -31,8 +32,9 @@
 	        </div>
 
 	  </div>
-		
+
 	</ul>
+	@endif
 	@endif
 
 
@@ -53,7 +55,7 @@
 		<tbody>
 			@foreach($books as $book)
  			<tr>
-	    
+
 	    		<td>
 	      			<a href="{{route('biblis.show',$book)}}">{{$book->id}}</a>
 	    		</td>
@@ -72,22 +74,22 @@
 	      			<a href="{{route('users.show',$book->user)}}">{{$book->user->name}}</a>
 	    		@else
 	    		    <a href="{{route('home')}}" class="btn-outline-danger">available</a>
-	    		
+
 	    		@endif
 	    		</td>
 
 	    		<td class="row">
-	    		
+
 	      			 <a href="{{route('biblis.show',$book)}}" class="btn btn-outline-primary "><i class="fa fa-eye" aria-hidden="true"></i></a>
              		<a href="{{route('biblis.edit',$book)}}" class="btn btn-outline-secondary "><i class="fa fa-pencil" aria-hidden="true"></i></a>
 
             <!-- form delete -->
-		           <form action="{{route('biblis.destroy',$book)}}" method="POST" '>
+		           <form action="{{route('biblis.destroy',$book)}}" method="POST" >
 		           {{ csrf_field() }}
 		           {{ method_field('DELETE') }}
 		           <button type="submit" class="btn btn-outline-danger"><i class="fa fa-trash-o fa-lg"></i></button>
 		          </form>
-		      	
+
 	    		</td>
 
 
@@ -99,22 +101,7 @@
 	<!-- end tab -->
 
 
-   <span class="text-center">{{$books->links('vendor.pagination.bootstrap-4')}}</span> 
+   <span class="text-center">{{$books->links('vendor.pagination.bootstrap-4')}}</span>
 
-   <!-- message confirmation -->
-  <!--     @if(Session::has('flashy_notification.message'))
-    <script id="flashy-template" type="text/template">
-        <div class="flashy flashy--{{ Session::get('flashy_notification.type') }}">
-            <i class="material-icons">was succes</i>
-            <a href="#" class="flashy__body" target="_blank"></a>
-        </div>
-    </script> -->
-
-  <!--   <script>
-        flashy("{{ Session::get('flashy_notification.message') }}", "{{ Session::get('flashy_noticcefication.link') }}");
-    </script> -->
-     <!--  <script src="//code.jquery.com/jquery.js"></script>
- 	 @include('flashy::message') -->
-   <!--  @endif -->
 
 @endsection

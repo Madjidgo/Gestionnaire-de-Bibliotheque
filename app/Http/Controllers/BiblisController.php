@@ -77,7 +77,7 @@ class BiblisController extends Controller
     public function edit($id)
     {
         $book = Book::findOrFail($id);
-        Flashy::message('Delete was success!');
+        // Flashy::message('Delete was success!');
         return view('biblis.edit',compact('book'));
     }
 

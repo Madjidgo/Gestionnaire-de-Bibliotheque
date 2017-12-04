@@ -5,7 +5,7 @@
       <div class="container">
       <div class="row">
         <div class="col-sm-6">
-          <div class="card text-center" style="width: 20rem;"">
+          <div class="card text-center" style="width: 20rem;">
             <div class="card-body">
               <h4 class="card-title">Author:{{$book->author}}</h4>
               <p class="card-text">Resume:{{$book->resume}}.</p>
@@ -16,7 +16,7 @@
               <p class="card-text">date:{{$book->date}}</p>
               <p class="card-text">user: {{$book->user->name}}</p>
               @endif
-          
+
                 <a href="{{route('home')}}" class="btn btn-outline-primary"><i class="fa fa-home" aria-hidden="true"></i>
                 Home</a>
                  <a href="{{route('biblis.edit',$book)}}" class="btn btn-outline-secondary"><i class="fa fa-pencil" aria-hidden="true"></i>
@@ -33,9 +33,7 @@
             </div>
           </div>
         </div>
-       
+
       </div>
     	</div>
 @endsection
-
-  
