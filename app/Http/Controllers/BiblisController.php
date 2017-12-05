@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateBookFormRequest;
-use App\Http\Requests\UpdateBookFormRequest;
+
+use App\Http\Requests\BibliFormRequest;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use MercurySeries\Flashy\Flashy;
@@ -39,7 +39,7 @@ class BiblisController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateBookFormRequest $request)
+    public function store(BibliFormRequest $request)
     {
       
 
@@ -87,7 +87,7 @@ class BiblisController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBookFormRequest $request, $id)
+    public function update(BibliFormRequest $request, $id)
     {
         
         $book = Book::findOrFail($id);
