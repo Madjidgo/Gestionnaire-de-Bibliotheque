@@ -23,11 +23,13 @@
                 Update</a>
 
                 <!-- form delete -->
-               <form action="{{route('biblis.destroy',$book)}}" method="POST">
+                
+               <form action="{{route('biblis.destroy',$book)}}" method="POST"  onsubmit=" return confirm('Are you sur ?');">
                {{ csrf_field() }}
                {{ method_field('DELETE') }}
                <button type="submit" class="btn btn-outline-danger"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
               </form>
+
 
 
             </div>

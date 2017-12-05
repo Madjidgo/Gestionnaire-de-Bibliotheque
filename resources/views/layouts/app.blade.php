@@ -3,7 +3,7 @@
   <header>
   @include('layouts/_nav')
   </header>
-  
+
   <body>
   @yield('content')
 

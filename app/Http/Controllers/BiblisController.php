@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateBookFormRequest;
+use App\Http\Requests\UpdateBookFormRequest;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use MercurySeries\Flashy\Flashy;
@@ -37,12 +39,9 @@ class BiblisController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateBookFormRequest $request)
     {
-        $request->validate([
-        'title' => 'bail|required|min:3',
-        'resume' => 'required|min:5',
-    ]);
+      
 
         Book::create(['title' => $request->title,
                         'author' => $request->author,
@@ -88,13 +87,9 @@ class BiblisController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateBookFormRequest $request, $id)
     {
-         $request->validate([
-        'title' => 'bail|required|min:3',
-        'resume' => 'required|min:5',
-        ]);
-
+        
         $book = Book::findOrFail($id);
          $book->update(['title' => $request->title,
                         'author' => $request->author,
@@ -105,7 +100,7 @@ class BiblisController extends Controller
                         'date' => $request->date]);
 
 
-        Flashy::primaryDark('Modif was success!'); 
+        Flashy::primaryDark('Modif was success!');
         return redirect(route('biblis.show', $id));
     }
 
