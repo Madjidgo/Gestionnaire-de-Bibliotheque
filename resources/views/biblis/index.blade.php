@@ -12,12 +12,15 @@
 	@if(count($books) >0)
 	@if($books != null)
 
-	<ul>
+	
 
 			<!-- dropdown -->
+
+			<form action="{{route('biblis.index') }}" method="POST">
+				{{ csrf_field() }}
+
 				 <div class="form-group text-center">
 					<div class="col-sm-6">
-	          <label for="user_id" class="control-label-col-sm-2  ">Category</label>
 
 	          <select name="user_id"  class="from-control btn btn-lg btn-success ">
 
@@ -28,12 +31,16 @@
 	          {{$book->category}}
 	        </option>
 	          @endforeach
+
 	          </select>
-	        </div>
+	          	        
 
-	  </div>
-
-	</ul>
+	        <button type="submit"   class="btn btn-outline-danger"><i class="fa fa-arrows-v" aria-hidden="true"></i></button>
+		        </div>
+				 
+		  </div>
+		</form>
+	
 	@endif
 	@endif
 
@@ -84,11 +91,13 @@
              		<a href="{{route('biblis.edit',$book)}}" class="btn btn-outline-secondary "><i class="fa fa-pencil" aria-hidden="true"></i></a>
 
             <!-- form delete -->
-		           <form action="{{route('biblis.destroy',$book)}}" method="POST" >
+		           <form action="{{route('biblis.destroy',$book)}}" method="POST" onsubmit=" return confirm('Are you sûr ?')" >
 		           {{ csrf_field() }}
 		           {{ method_field('DELETE') }}
 		           <button type="submit" class="btn btn-outline-danger"><i class="fa fa-trash-o fa-lg"></i></button>
 		          </form>
+
+		    
 
 	    		</td>
 

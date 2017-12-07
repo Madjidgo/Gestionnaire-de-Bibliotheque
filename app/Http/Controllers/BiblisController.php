@@ -7,6 +7,7 @@ use App\Http\Requests\BibliFormRequest;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use MercurySeries\Flashy\Flashy;
+use Symfony\Component\HttpFoundation\isMethod;
 
 class BiblisController extends Controller
 {
@@ -15,10 +16,34 @@ class BiblisController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( Request $request)
     {
+
+        
+        $method = $request->method();
+       
+        if($request->isMethod('post'))
+        {
+            dump($request);
+
+            //
+        }
+
+        else{
        $books =  Book::paginate(3);
        return view('biblis.index', compact('books'));
+        }
+    }
+
+        /**
+     * Display sorted books.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function sort( Request $request)
+    {
+
+        dd('test');
     }
 
     /**
@@ -29,7 +54,7 @@ class BiblisController extends Controller
     public function create()
     {
         $book = new Book;
-         // Flashy::message('Create was success!');
+        
         return view('biblis.create',compact('book'));
     }
 
@@ -61,10 +86,10 @@ class BiblisController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Book $bibli)
     {
-            $book = Book::findOrFail($id);
-           return view('biblis.show',compact('book'));
+            // implicit Route Models building
+           return view('biblis.show',compact('bibli'));
     }
 
     /**
@@ -76,7 +101,7 @@ class BiblisController extends Controller
     public function edit($id)
     {
         $book = Book::findOrFail($id);
-        // Flashy::message('Delete was success!');
+
         return view('biblis.edit',compact('book'));
     }
 

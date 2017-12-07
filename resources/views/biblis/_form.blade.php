@@ -1,7 +1,7 @@
    <div class="form-group">
     <label for="formGroupExampleInput">Title</label>
     <input type="text" class="form-control" id="formGroupExampleInput" name="title" value="{{old('title') ?? $book->title}}">
-    {!! $errors->first('title','<p>:message</p>') !!}
+    {!! $errors->first('title','<p class="text-danger">:message</p>') !!}
   </div>
 
   <div class="form-group">
@@ -13,7 +13,7 @@
      <div class="form-group">
     <label for="formGroupExampleInput">Resume</label>
     <input type="text" class="form-control" id="formGroupExampleInput" name="resume" value="{{old('resume') ?? $book->resume}}">
-    {!! $errors->first('resume','<p>:message</p>') !!}
+    {!! $errors->first('resume','<p class="text-danger">:message</p>') !!}
   </div>
 
    <div class="form-group">

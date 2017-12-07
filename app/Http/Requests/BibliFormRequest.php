@@ -28,4 +28,19 @@ class BibliFormRequest extends FormRequest
           'resume' => 'required|min:5',
         ];
     }
+
+    /**
+ * Get the error messages for the defined validation rules.
+ *
+ * @return array
+ */
+public function messages()
+    {
+    return [
+        'title.required' => 'A title is required',
+        'title.min' => ' characts :min thank you',
+        'resume.required'  => 'A message is required',
+        'resume.min' => 'characts :min thank you',
+         ];
+    }
 }
