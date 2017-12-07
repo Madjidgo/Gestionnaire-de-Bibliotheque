@@ -10,7 +10,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+/**
+ * show all free index page
+ */
+Route::get('/', 'BiblisController@index')->name('home');
+Route::get('/sort', 'BiblisController@sort')->name('sort');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/**
+ * BiblisController
+ */
+Route::resource('biblis','BiblisController');
+/**
+ * UsersController
+ */
+Route::resource('users','UsersController');
+
+Route::post('/', 'BiblisController@store');
+
